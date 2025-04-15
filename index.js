@@ -2,7 +2,7 @@ const mineflayer = require("mineflayer");
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: "OGonly.aternos.me:23390", // <-- මෙහි ඔබගේ Aternos Server IP එක දාන්න
+    host: "OGonly.aternos.me", // <-- මෙහි ඔබගේ Aternos Server IP එක දාන්න
     port: 23390, // <-- Aternos දීලා තියෙන port එක දාන්න
     username: "ShangeLokuAyya", // cracked නම් username පමණයි
   });
