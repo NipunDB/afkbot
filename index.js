@@ -1,29 +1,31 @@
-const mineflayer = require('mineflayer');
+const mineflayer = require("mineflayer");
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'OGonly.aternos.me', // ඔබේ Aternos IP එක මෙතන
-    port: 23390,
-    username: 'NiggaSL11',       // bot නම
+    host: "OGonly.aternos.me", // <-- මෙහි ඔබගේ Aternos Server IP එක දාන්න
+    port: 23390, // <-- Aternos දීලා තියෙන port එක දාන්න
+    username: "ShangeLokuAyya", // cracked නම් username පමණයි
   });
 
-  bot.on('spawn', () => {
-    console.log('Bot spawned!');
-    
-    // AFK විදිහට මූව් වෙනවා
+  bot.on("spawn", () => {
+    console.log("✅ Bot spawned!");
+
     setInterval(() => {
-      bot.setControlState('forward', true);
-      setTimeout(() => bot.setControlState('forward', false), 1000);
-    }, 30000); // සෑම විනාඩි 0.5කට වතාවක්
-
+      bot.setControlState("forward", true);
+      setTimeout(() => {
+        bot.setControlState("forward", false);
+      }, 1000);
+    }, 30000); // every 30 seconds
   });
 
-  bot.on('end', () => {
-    console.log('Bot disconnected. Reconnecting...');
-    setTimeout(createBot, 5000); // disconnect උනොත් 5s ඉන්පසු නැවත සම්බන්ධ වෙන්න
+  bot.on("end", () => {
+    console.log("❌ Bot disconnected. Reconnecting...");
+    setTimeout(createBot, 5000);
   });
 
-  bot.on('error', (err) => console.log('Error:', err));
+  bot.on("error", err => {
+    console.log("❌ Error:", err.message);
+  });
 }
 
 createBot();
